@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
         col = db.collection('users');
         col.insertOne({'hello':'Amazon DocumentDB'}, function(err, result){
           console.log("ee")
-        // })
+        })
   res.json({test: "sds"});
 });
 
