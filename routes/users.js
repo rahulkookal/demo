@@ -44,7 +44,8 @@ router.get('/:id', function(req, res, next) {
 
 router.put('/', function(req, res, next) {
   let client = global.connections.PRIMARY
-  console.log(req.body.user)
+  let user = req.body.user
+  delete user._id;
   let updateValues = { $set: req.body.user };
   let db = client.db('customer_1')
       col = db.collection('users');
