@@ -4,6 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   let client = global.connections.REPLICA_1
+  console.log(req.params)
   let db = client.db('customer_1')
       col = db.collection('users');
       col.find({}).toArray(function(err, result) {        
@@ -31,6 +32,7 @@ router.post('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   let client = global.connections.REPLICA_1
   console.log(req.params)
+  console.log("Here")
   let db = client.db('customer_1')
       col = db.collection('users');
       col.find({ _id: ObjectId("5f82c5d1f80cc754dc9d77ba") }, function(err, result) {        
