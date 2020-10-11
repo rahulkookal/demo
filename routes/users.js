@@ -45,9 +45,10 @@ router.get('/:id', function(req, res, next) {
 router.put('/', function(req, res, next) {
   let client = global.connections.PRIMARY
   console.log(req.body.user)
+  let updateValues = { $set: req.body.user };
   let db = client.db('customer_1')
       col = db.collection('users');
-      col.findOneAndUpdate({ _id: ObjectId(req.body.user._id) }, req.body.user).then(function(err, result) {        
+      col.findOneAndUpdate({ _id: ObjectId(req.body.user._id) }, updateValues).then(function(err, result) {        
         if(err){
           res.status(500).json(err).end()
         }
