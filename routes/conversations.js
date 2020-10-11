@@ -54,5 +54,6 @@ router.put('/', function(req, res, next) {
         }
         res.status(200).json(result).end()
       });
+  });
 
 module.exports = router;
