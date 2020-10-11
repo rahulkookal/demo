@@ -47,7 +47,7 @@ router.put('/', function(req, res, next) {
   console.log(req.body.user)
   let db = client.db('customer_1')
       col = db.collection('users');
-      col.findOneAndUpdate({ _id: ObjectId(req.body.user._id) }, { $set: req.body.user}).then(function(err, result) {        
+      col.findOneAndUpdate({ _id: ObjectId(req.body.user._id) }, { $set: { name: req.body.user.name}}).then(function(err, result) {        
         if(err){
           res.status(500).json(err).end()
         }
