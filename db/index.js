@@ -20,24 +20,22 @@ const init = function() {
     function(err, client) {
         if(err)
             throw err;
-        let db = client.db('customer_1')
-        col = db.collection('users');
-        col.insertOne({'hello':'Amazon DocumentDB'}, function(err, result){
-          console.log("ee")
-          console.log(result)
-        })
-    }
-    )
-    // .then((client) => con = client);
+
+            con = client
+        // let db = client.db('customer_1')
+        // col = db.collection('users');
+        // col.insertOne({'hello':'Amazon DocumentDB'}, function(err, result){
+        //   console.log("updated")
+        //   console.log(result)
+        // })
+    })
+    //.then((client) => con = client);
 
 }
 const insertUser = (user) => {
   let db = con.db('customer_1')
       col = db.collection('users');
-      col.insertOne({'hello':'Amazon DocumentDB'}, function(err, result){
-        console.log("ee")
-        console.log(result)
-      })
+      return col.insertOne({'hello':'Amazon DocumentDB'})
 }
 module.exports = { init, insertUser }
 
