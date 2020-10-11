@@ -3,7 +3,15 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.json({test: "sds"});
+  let client = global.connections.REPLICA_1
+  let db = client.db('customer_1')
+      col = db.collection('users');
+      col.find({}).toArray(function(err, result) {        
+        if(err){
+          res.status(500).json(err).end()
+        }
+        res.status(200).json(result).end()
+      });
 });
 
 router.post('/', function(req, res, next) {
@@ -16,7 +24,7 @@ router.post('/', function(req, res, next) {
           if(err){
             res.status(500).json(err).end()
           }
-          res.status(200).json({test: "sds"}).end()
+          res.status(200).json({id: "sds"}).end()
         })
 });
 
