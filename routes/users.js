@@ -46,7 +46,7 @@ router.put('/', function(req, res, next) {
   let client = global.connections.PRIMARY
   let user = req.body.user
   delete user._id;
-  let updateValues = { $set: req.body.user };
+  let updateValues = { $set: user };
   let db = client.db('customer_1')
       col = db.collection('users');
       col.findOneAndUpdate({ _id: ObjectId(req.body.user._id) }, updateValues).then(function(err, result) {        
