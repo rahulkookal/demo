@@ -44,8 +44,10 @@ var ca = [fs.readFileSync("./cert/rds-combined-ca-bundle.pem")];
 // module.exports = { init, insertUser }
 
 
-const PRIMARY = "mongodb://rahul:rahulkodoth@docdb-2020-10-10-08-45-24.cluster-c6jhpcbeair9.ap-southeast-2.docdb.amazonaws.com:27017/?ssl=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
-const REPLICA_1 = "mongodb://rahul:rahulkodoth@docdb-2020-10-10-08-45-24.cluster-c6jhpcbeair9.ap-southeast-2.docdb.amazonaws.com:27017/?ssl=true&replicaSet=rs1&readPreference=secondaryPreferred&retryWrites=false"
+
+
+const PRIMARY = "mongodb://rahul:rahulkodoth@docdb-2020-10-10-08-45-24.c6jhpcbeair9.ap-southeast-2.docdb.amazonaws.com:27017/?ssl=true&retryWrites=false"
+const REPLICA_1 = "mongodb://rahul:rahulkodoth@docdb-2020-10-10-08-45-242.c6jhpcbeair9.ap-southeast-2.docdb.amazonaws.com:27017/?ssl=true&retryWrites=false"
 
 function connect(url) {
   return MongoClient.connect(url, { 
