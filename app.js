@@ -10,9 +10,12 @@ var users = require('./routes/users');
 var visitors = require('./routes/visitors');
 var conversations = require('./routes/conversations');
 
-const { init } = require('./db')
+const initializeDatabases = require('./db')
 
-init();
+initializeDatabases().then(dbs => {
+  console.log("connection created")
+  global.connections = dbs;
+})
 
 var app = express();
 
