@@ -9,11 +9,15 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   let client = global.connections.PRIMARY
   let db = client.db('customer_1')
-        col = db.collection('users');
-        col.insertOne({'hello':'Amazon DocumentDB'}, function(err, result){
+      col = db.collection('users');
+        col.insertOne(req.body.user, function(err, result){
           console.log("ee")
+          console.log(result)
+          if(err){
+            res.status(500).json(err).end()
+          }
+          res.status(200).json({test: "sds"}).end()
         })
-  res.json({test: "sds"});
 });
 
 module.exports = router;
