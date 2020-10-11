@@ -42,7 +42,9 @@ router.get('/:id', function(req, res, next) {
       });
 });
 
-router.put('/',function(req, res, next){
+router.put('/:id',function(req, res, next){
+  console.log(req.body.user)
+  console.log(req.params)
   res.status(200).json({status: 'ok'}).end()
 })
 
